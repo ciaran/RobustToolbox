@@ -11,6 +11,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="DiscordRichPresence" PrivateAssets="compile" />
+    <PackageReference Include="Facepunch.Steamworks" PrivateAssets="compile" />
     <PackageReference Include="JetBrains.Annotations" PrivateAssets="All" />
     <PackageReference Include="Microsoft.Data.Sqlite.Core" PrivateAssets="compile" />
     <PackageReference Include="SQLitePCLRaw.provider.sqlite3" Condition="'$(UseSystemSqlite)' == 'True'" PrivateAssets="compile" />
@@ -70,4 +71,27 @@
   <Import Project="..\MSBuild\XamlIL.targets" />
 
   <Import Project="..\MSBuild\Robust.Trimming.targets" />
+
+  <ItemGroup>
+    <None Include="Steam\**\*">
+      <TargetPath>%(Filename)%(Extension)</TargetPath>
+      <Link>%(Filename)%(Extension)</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <!-- <None Include="Steam\osx\libsteam_api.dylib">
+      <TargetPath>%(Filename)%(Extension)</TargetPath>
+      <Link>%(Filename)%(Extension)</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Steam\osx\libsteam_api64.dylib">
+      <TargetPath>%(Filename)%(Extension)</TargetPath>
+      <Link>%(Filename)%(Extension)</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Steam\win64\steam_api64.dll">
+      <TargetPath>%(Filename)%(Extension)</TargetPath>
+      <Link>%(Filename)%(Extension)</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None> -->
+  </ItemGroup>
 </Project>
