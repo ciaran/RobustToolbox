@@ -73,25 +73,17 @@
   <Import Project="..\MSBuild\Robust.Trimming.targets" />
 
   <ItemGroup>
-    <None Include="Steam\**\*">
+    <None Include="Steam\osx\*" Condition="$([MSBuild]::IsOsPlatform('OSX'))">
       <TargetPath>%(Filename)%(Extension)</TargetPath>
-      <Link>%(Filename)%(Extension)</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <!-- <None Include="Steam\osx\libsteam_api.dylib">
+    <None Include="Steam\win\*" Condition="$([MSBuild]::IsOsPlatform('Windows'))">
       <TargetPath>%(Filename)%(Extension)</TargetPath>
-      <Link>%(Filename)%(Extension)</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Steam\osx\libsteam_api64.dylib">
+    <None Include="Steam\linux\*" Condition="$([MSBuild]::IsOsPlatform('Linux'))">
       <TargetPath>%(Filename)%(Extension)</TargetPath>
-      <Link>%(Filename)%(Extension)</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Steam\win64\steam_api64.dll">
-      <TargetPath>%(Filename)%(Extension)</TargetPath>
-      <Link>%(Filename)%(Extension)</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None> -->
   </ItemGroup>
 </Project>
