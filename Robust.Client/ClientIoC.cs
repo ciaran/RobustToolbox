@@ -57,6 +57,7 @@ namespace Robust.Client
         {
             SharedIoC.RegisterIoC(deps);
 
+            deps.Register<ISteamManager, SteamManager>();
             deps.Register<IGameTiming, ClientGameTiming>();
             deps.Register<IClientGameTiming, ClientGameTiming>();
             deps.Register<IPrototypeManager, ClientPrototypeManager>();

@@ -44,6 +44,7 @@ using Robust.Shared.Threading;
 using Robust.Shared.Timing;
 using Robust.Shared.Upload;
 using Robust.Shared.Utility;
+using Steamworks;
 using YamlDotNet.RepresentationModel;
 
 namespace Robust.Client
@@ -73,6 +74,7 @@ namespace Robust.Client
         [Dependency] private readonly ITaskManager _taskManager = default!;
         [Dependency] private readonly IClientViewVariablesManagerInternal _viewVariablesManager = default!;
         [Dependency] private readonly IDiscordRichPresence _discord = default!;
+        [Dependency] private readonly ISteamManager _steam = default!;
         [Dependency] private readonly IClydeInternal _clyde = default!;
         [Dependency] private readonly IAudioInternal _audio = default!;
         [Dependency] private readonly IFontManagerInternal _fontManager = default!;
@@ -202,6 +204,7 @@ namespace Robust.Client
             _scriptClient.Initialize();
             _client.Initialize();
             _discord.Initialize();
+            _steam.Initialize();
             _tagManager.Initialize();
             _protoLoadMan.Initialize();
             _netResMan.Initialize();

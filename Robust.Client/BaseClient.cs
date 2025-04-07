@@ -28,6 +28,7 @@ namespace Robust.Client
         [Dependency] private readonly IClientEntityManager _entityManager = default!;
         [Dependency] private readonly IMapManager _mapManager = default!;
         [Dependency] private readonly IDiscordRichPresence _discord = default!;
+        [Dependency] private readonly ISteamManager _steam = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly IClientGameStateManager _gameStates = default!;
         [Dependency] private readonly ILogManager _logMan = default!;
@@ -71,7 +72,10 @@ namespace Robust.Client
         {
             var serverPlayers = _playMan.PlayerCount;
             if (_net.ServerChannel != null && GameInfo != null && _net.IsConnected)
+            {
                 _discord.Update(GameInfo.ServerName, _net.ServerChannel.UserName, GameInfo.ServerMaxPlayers.ToString(), serverPlayers.ToString());
+                _steam.Update(GameInfo.ServerName, _net.ServerChannel.UserName, GameInfo.ServerMaxPlayers.ToString(), serverPlayers.ToString());
+            }
         }
 
         private void SyncTimeBase(MsgSyncTimeBase message)
@@ -175,7 +179,7 @@ namespace Robust.Client
 
             var serverPlayers = _playMan.PlayerCount;
             _discord.Update(info.ServerName, channel.UserName, info.ServerMaxPlayers.ToString(), serverPlayers.ToString());
-
+            _steam.Update(info.ServerName, channel.UserName, info.ServerMaxPlayers.ToString(), serverPlayers.ToString());
         }
 
         /// <summary>
