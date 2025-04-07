@@ -1,0 +1,9 @@
+﻿"lang"
+{
+    "Language"  "english"
+    "Tokens"
+    {
+        "#Status_MainMenu"          "Main Menu"
+        "#Status_ServerConnected"   "%serverName% (%players%/%maxPlayers% players)"
+    }
+}
