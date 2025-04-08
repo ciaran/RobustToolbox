@@ -6,6 +6,7 @@ namespace Robust.Client.Utility
     {
         void Initialize();
         void Update(string serverName, string username, string maxUsers, string users);
-        void ClearPresence();
+
+        void SetTimelineTooltip(string description, float timeOffsetSeconds);
     }
 }

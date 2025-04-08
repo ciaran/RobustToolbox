@@ -39,6 +39,7 @@ namespace Robust.Client.Utility
                 return;
 
             SteamFriends.SetRichPresence("steam_display", "#Status_MainMenu");
+            // SteamTimeline.
         }
 
         public void Update(string serverName, string username, string maxUsers, string users)
@@ -52,12 +53,13 @@ namespace Robust.Client.Utility
             SteamFriends.SetRichPresence("steam_display", "#Status_ServerConnected");
         }
 
-        public void ClearPresence()
+        public void Dispose()
         {
         }
 
-        public void Dispose()
+        public void SetTimelineTooltip(string description, float timeOffsetSeconds)
         {
+            SteamTimeline.SetTimelineTooltip(description, timeOffsetSeconds);
         }
     }
 }
