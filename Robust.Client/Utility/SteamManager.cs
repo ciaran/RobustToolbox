@@ -61,6 +61,12 @@ namespace Robust.Client.Utility
         {
             SteamTimeline.SetTimelineTooltip(description, timeOffsetSeconds);
         }
+
+        public void AddInstantaneousTimelineEvent( string title, string description, string icon,
+            uint priority, float startOffsetSeconds )
+        {
+            SteamTimeline.AddInstantaneousTimelineEvent(title, description, icon, priority, startOffsetSeconds, TimelineEventClipPriority.None);
+        }
     }
 }
 
